@@ -1,0 +1,23 @@
+{
+  "name": "lifeline",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "angga2oioi",
+  "license": "ISC",
+  "description": "Sends heartbeat to a monitoring server",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angga2oioi/lifeline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/angga2oioi/lifeline/issues"
+  },
+  "homepage": "https://github.com/angga2oioi/lifeline#readme",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "uuid": "^11.0.5"
+  }
+}
