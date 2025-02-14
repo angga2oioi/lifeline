@@ -2,7 +2,7 @@
 
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
-const DEFAULT_INSTANCE_FILE = "/app/data/instance_id"; // Persistent storage
+const DEFAULT_INSTANCE_FILE = "./instance_id"; // Persistent storage
 
 async function generateInstanceId(file = "") {
     if (!file) {

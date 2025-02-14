@@ -8,10 +8,15 @@ async function sendHeartbeat({
     baseUrl,
     projectId,
     serviceId,
+    instanceId,
     instanceFilePath,
+    options
 }) {
-    const instanceId = await generateInstanceId(instanceFilePath);
 
+    if(!instanceId){
+        instanceId = await generateInstanceId(instanceFilePath);
+    }
+    
     try {
         let timestamp = new Date().toISOString()
         await axios.post(baseUrl, {
@@ -20,13 +25,20 @@ async function sendHeartbeat({
             instanceId,
             timestamp,
         });
-        console.log("[Heartbeat] sent at", timestamp);
+
+        if(options?.successLog===true){
+            console.log("[Heartbeat] sent at", timestamp);
+        }
+        
     } catch (err) {
-        console.error("[Heartbeat] Failed to send:", err.message);
+        if(options?.errorLog===true){
+            console.error("[Heartbeat] Failed to send:", err.message);
+        }
+        
     }
 }
 
-function startHeartbeat(params) {
+function startHeartbeat (params) {
     sendHeartbeat(params);
     setInterval(() => {
         sendHeartbeat(params)

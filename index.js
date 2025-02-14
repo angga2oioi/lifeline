@@ -1,5 +1,6 @@
 //@ts-check
+const useLifeline = require("./hooks/useLifeline")
 
-const { startHeartbeat } = require("./service/heartbeat");
-
-module.exports = startHeartbeat
+module.exports = {
+    useLifeline
+}
