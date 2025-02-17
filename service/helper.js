@@ -7,3 +7,13 @@ exports.num2Int = (number) => {
 
     return parseInt(number);
 };
+
+exports.stringifyObjectValues = (params) => {
+    let obj = { ...params };
+
+    Object.keys(obj).forEach(
+        (k) => (obj[k] = obj[k]?.toString())
+    );
+
+    return obj;
+};
