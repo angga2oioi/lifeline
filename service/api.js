@@ -94,7 +94,6 @@ const sendEvent = async (params, { title, message }) => {
     try {
         let timestamp = new Date().getTime();
         let payload = {
-            projectId,
             serviceId,
             instanceId,
             title,
