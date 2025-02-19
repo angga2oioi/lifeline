@@ -52,11 +52,12 @@ const sendHeartbeat = async (params) => {
         let timestamp = new Date().getTime();
         let payload = {
             instanceId,
+            serviceId,
             timestamp,
         }
 
         let headers = generateHeader({ projectId, secretKey }, {}, payload)
-        await getAxios(params).post(`/v1/projects/${projectId}/services/${serviceId}/heartbeats`, payload,
+        await getAxios(params).post(`/v1/heartbeats`, payload,
             {
                 headers
             }
@@ -93,13 +94,16 @@ const sendEvent = async (params, { title, message }) => {
     try {
         let timestamp = new Date().getTime();
         let payload = {
+            projectId,
+            serviceId,
+            instanceId,
             title,
             message,
             timestamp,
         }
         
         let headers = generateHeader({ projectId, secretKey }, {}, payload)
-        await getAxios(params).post(`/v1/projects/${projectId}/services/${serviceId}/instances/${instanceId}/events`, payload, {
+        await getAxios(params).post(`/v1/events`, payload, {
             headers
         });
 
