@@ -81,6 +81,7 @@ const sendEvent = async (params, { title, message }) => {
     let {
         secretKey,
         projectId,
+        serviceId,
         instanceId,
         instanceFilePath,
         options
@@ -94,6 +95,7 @@ const sendEvent = async (params, { title, message }) => {
         let timestamp = new Date().getTime();
         let payload = {
             instanceId,
+            serviceId,
             title,
             message,
             timestamp,
