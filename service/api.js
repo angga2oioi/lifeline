@@ -69,7 +69,7 @@ const sendHeartbeat = async (params) => {
 
     } catch (err) {
         if (options?.errorLog === true) {
-            console.error("[Heartbeat] Failed to send:", err.message, err?.stack);
+            console.error("[Heartbeat] Failed to send:", err.message);
         }
 
     }
@@ -112,7 +112,7 @@ const sendEvent = async (params, { title, message }) => {
 
     } catch (err) {
         if (options?.errorLog === true) {
-            console.error("[Event] Failed to send:", err.message, err?.stack);
+            console.error("[Event] Failed to send:", err.message);
         }
 
     }
