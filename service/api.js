@@ -69,7 +69,7 @@ const sendHeartbeat = async (params) => {
 
     } catch (err) {
         if (options?.errorLog === true) {
-            console.error("[Heartbeat] Failed to send:", err.message);
+            console.error("[Heartbeat] Failed to send:", err.message, err?.stack);
         }
 
     }
@@ -100,7 +100,7 @@ const sendEvent = async (params, { title, message }) => {
             message,
             timestamp,
         }
-        
+
         let headers = generateHeader({ projectId, secretKey }, {}, payload)
         await getAxios(params).post(`/v1/events`, payload, {
             headers
@@ -112,7 +112,7 @@ const sendEvent = async (params, { title, message }) => {
 
     } catch (err) {
         if (options?.errorLog === true) {
-            console.error("[Event] Failed to send:", err.message);
+            console.error("[Event] Failed to send:", err.message, err?.stack);
         }
 
     }
