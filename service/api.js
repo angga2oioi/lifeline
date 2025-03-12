@@ -39,7 +39,7 @@ const sendHeartbeat = async (params) => {
         projectId,
         serviceId,
         instanceId,
-        getInstanceStatus,
+        getInstanceMetrics,
         instanceFilePath,
         options
     } = params;
@@ -57,8 +57,8 @@ const sendHeartbeat = async (params) => {
             timestamp,
         }
 
-        if (typeof getInstanceStatus === "function") {
-            payload.status = await getInstanceStatus()
+        if (typeof getInstanceMetrics === "function") {
+            payload.metrics = await getInstanceMetrics()
         }
 
         let headers = generateHeader({ projectId, secretKey }, {}, payload)
